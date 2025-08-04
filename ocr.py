@@ -4,7 +4,6 @@ from PIL import Image
 import io
 import base64
 
-# Page configuration
 st.set_page_config(
    page_title="Gemma-3 OCR",
    page_icon="🔎",
@@ -12,10 +11,9 @@ st.set_page_config(
    initial_sidebar_state="expanded"
 )
 
-# Title and description in main area
 st.title("AI Document OCR")
 
-# Add clear button to top right
+
 col1, col2 = st.columns([6,1])
 with col2:
    if st.button("Clear 🗑️"):
@@ -26,13 +24,11 @@ with col2:
 st.markdown('<p style="margin-top: -20px;">Extract structured text from images using Gemma-3 Vision!</p>', unsafe_allow_html=True)
 st.markdown("---")
 
-# Move upload controls to sidebar
 with st.sidebar:
    st.header("Upload Image")
    uploaded_file = st.file_uploader("Choose an image...", type=['png', 'jpg', 'jpeg'])
   
    if uploaded_file is not None:
-       # Display the uploaded image
        image = Image.open(uploaded_file)
        st.image(image, caption="Uploaded Image")
       
@@ -54,12 +50,10 @@ with st.sidebar:
                except Exception as e:
                    st.error(f"Error processing image: {str(e)}")
 
-# Main content area for results
 if 'ocr_result' in st.session_state:
    st.markdown(st.session_state['ocr_result'])
 else:
    st.info("Upload an image and click 'Extract Text' to see the results here.")
 
-# Footer
 st.markdown("---")
 st.markdown("Made using Gemma-3 Vision Model")
