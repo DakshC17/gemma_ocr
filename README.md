@@ -140,9 +140,11 @@ st.set_page_config(
 - [ ] Batch processing multiple images
 - [ ] Export results to various formats (TXT, DOCX, PDF)
 - [ ] OCR confidence scoring
-- [ ] Custom prompt templates
+- [ ] Custom prompt templates (Prompt needs to be enhanced more and more)
 - [ ] Multi-language support
 - [ ] Image preprocessing options
+- [ ] Better the prompt better the results
+- [ ] Will TRY for different models like deepseek VL qwen llava etc..
 
 ## 🤝 Contributing
 
