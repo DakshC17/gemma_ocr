@@ -39,10 +39,24 @@ with st.sidebar:
                        model= 'gemma3:4b',
                        messages=[{
                            'role': 'user',
-                           'content': """Analyze the text in the provided image. Extract all readable content
-                                       and present it in a structured Markdown format that is clear, concise,
-                                       and well-organgized. Ensure proper formatting (e.g., headings, lists, or
-                                       code blocks) as necessary to represent the content effectively.""",
+                           'content': """You are an expert in Optical Character Recognition (OCR) and document analysis.
+
+Carefully examine the image provided and extract **all visible and legible textual content**, ensuring no detail is missed — including headers, subheaders, tables, footnotes, watermarks, annotations, and small print.
+
+Present the extracted information in a **structured and professional Markdown format**, using appropriate elements such as:
+
+- `#` for main headings  
+- `##` for subheadings  
+- Bullet points or numbered lists for items  
+- Tables where applicable  
+- Code blocks for monospaced or technical text  
+- Blockquotes if the image contains quotes or cited content
+
+Also, maintain the **visual hierarchy and logical flow** as seen in the original layout. If any text is partially obscured or uncertain, mark it with `[UNCLEAR]`.
+
+Your goal is to make the output as close as possible to a human-crafted, structured transcription that can be reused in digital documents or applications.
+
+Now analyze the following image thoroughly and return the structured Markdown output""",
                            'images': [uploaded_file.getvalue()]
                        }]
                    )
